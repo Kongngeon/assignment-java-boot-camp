@@ -31,7 +31,7 @@ public class InitialProductService {
         ProductEntity item_5 = new ProductEntity(5,
                 "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
                 "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
-                695.0f,400,"Men's clothing");
+                695.0f,400,"Women's clothing");
 
         productRepository.save(item_1);
         productRepository.save(item_2);

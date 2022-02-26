@@ -5,26 +5,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ProductControllerTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
-
     @Test
-    @DisplayName("[Success case] get products by title")
-    void getProductByTitle() {
-        //arrange
-        List<DataItem> products = new ArrayList<DataItem>();
-        DataItem dataItem = new DataItem("product test");
-        products.add(dataItem);
-//        ProductsResponse productsResponse = new ProductsResponse(products,"success","OK");
-//        ProductsResponse result = testRestTemplate.getForObject("/products",ProductsResponse.class);
+    @DisplayName("[Case Success] Product Title 'Women's Legends Naga' found!")
+    void testGetProductByTitle(){
+       ProductsResponse result =  testRestTemplate.getForObject("/products?title={title}",ProductsResponse.class,"Women's Legends Naga");
+       assertEquals("John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",result.getData().get(0).getTitle());
 
     }
+
 }

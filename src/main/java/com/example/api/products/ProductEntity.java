@@ -74,4 +74,5 @@ public class ProductEntity {
     public String getShopName() {
         return shopName;
     }
+
 }
