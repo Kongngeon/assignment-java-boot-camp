@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "18b119ec-042c-4d39-a47d-2bdb2cb5b517",
+		"name": "demo_simple_restapi_java_spring_boot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list products filter by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products?title=Women's Legends Naga",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Women's Legends Naga"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list product all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/products/all",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find product by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

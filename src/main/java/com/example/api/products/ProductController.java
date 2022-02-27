@@ -1,11 +1,7 @@
 package com.example.api.products;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,13 +14,7 @@ public class ProductController {
     @GetMapping("/products")
     public ProductsResponse getProductByTitle(@RequestParam String title){
         List<ProductEntity> products = productService.findByTitle(title);
-        if(products.size() > 0){
-            ProductsResponse productsResponse = new ProductsResponse(products,"Found products","OK");
-            return productsResponse;
-        }
-
-            ProductsResponse productsResponse = new ProductsResponse(products,"record not found!","FAIL");
-            return productsResponse;
+        return new ProductsResponse(products,"Found products","OK");
     }
 
     @GetMapping("/products/all")
@@ -35,8 +25,14 @@ public class ProductController {
             return productsResponse;
         }
 
-        ProductsResponse productsResponse = new ProductsResponse(products,"record not found!","FAIL");
+        ProductsResponse productsResponse = new ProductsResponse(products,"Empty record","FAIL");
         return productsResponse;
+    }
+
+    @GetMapping("/product/{id}")
+    public ProductInfoResponse getProductById(@PathVariable int id){
+        Optional<ProductEntity> product = productService.findById(id);
+        return new ProductInfoResponse(product.get(),"successful","OK");
     }
 
 }
