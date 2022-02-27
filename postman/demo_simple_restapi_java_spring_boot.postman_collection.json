@@ -50,7 +50,17 @@
 			"name": "find product by id",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{host}}/product/3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"product",
+						"3"
+					]
+				}
 			},
 			"response": []
 		}
