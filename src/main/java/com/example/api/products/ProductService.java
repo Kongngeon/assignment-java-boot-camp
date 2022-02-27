@@ -17,13 +17,26 @@ public class ProductService {
 
     public List<ProductEntity> findByTitle(String title){
         List<ProductEntity>  result = productRepository.findByTitleContaining(title);
-        return result;
+        if(result.size() != 0){
+            return result;
+        }
+        throw new ProductNotFoundException("Product Title '"+title+"' not found!");
     }
 
     public List<ProductEntity> findAll(){
         List<ProductEntity>  result = productRepository.findAll();
         return result;
     }
+
+    public Optional<ProductEntity> findById(int id) throws ProductNotFoundException {
+        Optional<ProductEntity> result = productRepository.findById(id);
+        if(result.isPresent()){
+            return result;
+        }
+        throw new ProductNotFoundException("Not found product id "+Integer.toString(id));
+    }
+
+
 
 
 }

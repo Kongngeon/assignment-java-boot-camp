@@ -1,16 +1,21 @@
-GET /products?name={name}
+GET /products?title={product_title}
 status 200
 {
-    "message" : "find products",
+    "message" : "Found products",
     "status" : "OK",
     "data" : [{
-                      "id": 1,
-                      "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-                      "price": 109.95,
-                      "quantity" : 100,
-                      "shop_name" : "FakeStore",
-                      "detail": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-                      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-              }]
+                          "id": 5,
+                          "title": "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
+                          "detail": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
+                          "price": 695.0,
+                          "quantity": 400,
+                          "shopName": "Men 's clothing"
+                      }]
+}
+
+status 404
+{
+    "message" : "Product Title 'zx' not found!",
+    "status" : "Fail"
 }
 
